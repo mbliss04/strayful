@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+/*  Author: McCall Bliss;
+	Created: August 9th 2013;
+	Company: Stray;
+*/
+
+/* Universal */
+
+body {
+	font-family: 'amatic_scregular', tahoma, arial, sans-serif;
+	font-size: 150%;
+	background: url(../images/index.jpg);
+	background-position: top center;
+	position: absolute;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+div {
+	display: block;
+}
+
+.left-line {
+	background: url(../images/left-line.png) no-repeat top center;
+}
+
+.right-line {
+	background: url(../images/right-line.png) no-repeat top center;
+}
+
+.left-line, .right-line {
+	position: fixed;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 300;
+	opacity: .5;
+}
+
+.close-line-left, .close-line-right {
+	margin-left:-607px;
+	left:50%;
+}
+
+.menu-bar {
+	text-align: center;
+	width: 400px;
+	height: 200px;
+	margin-left: -200px;
+	left: 50%;
+	position: fixed;
+	background: url(../images/menu-big.png) center top no-repeat;
+	z-index: 600;
+}
+
+.menu-bar ul {
+	height: 18px;
+	margin: 14px auto 0;
+	display: inline-block;
+}
+
+.menu-bar ul li {
+	opacity: 1;
+	display: inline;
+	list-style-type: none;
+	text-transform: lowercase;
+}
+
+.menu-bar ul li:hover {
+	opacity: .6;
+	-webkit-transition: 0.2s all ease-in-out;
+	-moz-transition: 0.5s all ease-in-out;
+	-o-transition: 0.5s all ease-in-out;
+	-ms-transition: 0.5s all ease-in-out;
+	transition: 0.5s all ease-in-out;
+}
+
+.menu-bar ul li a {
+	margin: 0 10;
+}
+
+.menu-open {
+	background: url(../images/menu-small.png) center bottom no-repeat;
+	height: 90px;
+	width: 190px;
+	left: 50%;
+	top: 0;
+	margin-left: -98px;
+	position: fixed;
+	z-index: 8000;
+}
+
+.menu-open:hover {
+	cursor: pointer;
+	opacity: .5;
+}
+
+.logo {
+	background: url(../images/small-logo.png) center no-repeat;
+	height: 75px;
+	width: 75px;
+	margin: 0 auto;
+	margin-top: 27.5px;
+	z-index: 500;
+	opacity: 0;
+}
+
+.logo:hover {
+	cursor: pointer;
+}
+
+.closed {
+	top: -90px;
+}
+
+.opened {
+	top: 0;
+}
+
+/* Index */
+
+.straylogo {
+	background: url(../images/straytype.png) center top no-repeat;
+	opacity: .8;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	z-index: 200;
+}
+
+/* Gallery */
+
+/* Values */
+
+/* Media */
+
+.container {
+	text-align: left;
+	background-color: #FFF;
+	width: 100%;
+	height: 600px;
+	opacity: .8;
+}
+
+.videos {
+	font-size: 160%;
+	text-transform: lowercase;
+	padding: 15px;
+}
+
+/* Contact */
+
+.diamond {
+	background: url(../images/diamond.png) center top no-repeat;
+	position: fixed;
+	width: 580px;
+	height: 464px;
+	left: 50%;
+	margin-left: -260px;
+	margin-top: 154px;
+	z-index: 1000;
+	opacity: .6;
+}
