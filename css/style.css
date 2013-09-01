@@ -7,11 +7,14 @@
 
 /* Universal */
 
+html {
+	font-size: 100%;
+}
+
 body {
 	font-family: 'amatic_scregular', tahoma, arial, sans-serif;
 	font-size: 150%;
-	background: url(../images/index.jpg);
-	background-position: top center;
+	background: url(../images/index.jpg) top center;
 	position: absolute;
 }
 
@@ -25,11 +28,11 @@ div {
 }
 
 .left-line {
-	background: url(../images/left-line.png) no-repeat top center;
+	background: url(../images/double-left.png) no-repeat top center;
 }
 
 .right-line {
-	background: url(../images/right-line.png) no-repeat top center;
+	background: url(../images/double-right.png) no-repeat top center;
 }
 
 .left-line, .right-line {
@@ -65,6 +68,9 @@ div {
 
 .menu-bar ul li {
 	opacity: 1;
+	transition: opacity .25s ease-in-out;
+   	-moz-transition: opacity .25s ease-in-out;
+   	-webkit-transition: opacity .25s ease-in-out;
 	display: inline;
 	list-style-type: none;
 	text-transform: lowercase;
@@ -72,11 +78,6 @@ div {
 
 .menu-bar ul li:hover {
 	opacity: .6;
-	-webkit-transition: 0.2s all ease-in-out;
-	-moz-transition: 0.5s all ease-in-out;
-	-o-transition: 0.5s all ease-in-out;
-	-ms-transition: 0.5s all ease-in-out;
-	transition: 0.5s all ease-in-out;
 }
 
 .menu-bar ul li a {
@@ -94,11 +95,6 @@ div {
 	z-index: 8000;
 }
 
-.menu-open:hover {
-	cursor: pointer;
-	opacity: .5;
-}
-
 .logo {
 	background: url(../images/small-logo.png) center no-repeat;
 	height: 75px;
@@ -114,7 +110,8 @@ div {
 }
 
 .closed {
-	top: -90px;
+	top: -110px;
+	opacity: 0;
 }
 
 .opened {
@@ -135,7 +132,11 @@ div {
 
 /* Gallery */
 
+
+
 /* Values */
+
+
 
 /* Media */
 
@@ -149,7 +150,6 @@ div {
 
 .videos {
 	font-size: 160%;
-	text-transform: lowercase;
 	padding: 15px;
 }
 
@@ -158,11 +158,22 @@ div {
 .diamond {
 	background: url(../images/diamond.png) center top no-repeat;
 	position: fixed;
-	width: 580px;
+	width: 519px;
 	height: 464px;
 	left: 50%;
 	margin-left: -260px;
-	margin-top: 154px;
+	margin-top: 161px;
 	z-index: 1000;
 	opacity: .6;
 }
+
+#overlay {
+	background: url(../images/lines2.svg) center no-repeat;
+	width: 700px;
+	height: 700px;
+	left: 50%;
+	z-index: 2000;
+	opacity: .6;
+}
+
+
