@@ -38,13 +38,13 @@ $(document).ready(function(){
 	});
 
 	function classSwitch(object1, object2, class1, class2) {
-		object1.switchClass(class1, class2, 500);
-		object2.switchClass(class2, class1, 500);
+		object1.switchClass(class1, class2, 700);
+		object2.switchClass(class2, class1, 700);
 	}
 
 	function changeOpacity(change) {
-		$('.left-line').animate({'opacity': change}, 1000);
-		$('.right-line').animate({'opacity': change}, 1000);
+		$('.left-line').animate({'opacity': change}, 700);
+		$('.right-line').animate({'opacity': change}, 700);
 	}
 
 	/* Gallery */
