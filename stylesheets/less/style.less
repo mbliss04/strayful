@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "elements.less";
 
 /*  Author: McCall Bliss;
 	Created: August 9th 2013;
@@ -7,19 +8,21 @@
 
 /* Universal */
 
-html {
-	font-size: 100%;
-}
+@amatic: 'amatic_scregular';
+@body-font: tahoma;
+@sans: sans-serif;
+@back-pos: no-repeat top center;
+@default-opac: 0.6;
 
 body {
-	font-family: 'amatic_scregular', tahoma, arial, sans-serif;
+	font-family: @amatic, @body-font, @sans;
 	font-size: 150%;
 	background: url(../../images/index.jpg) top center;
 	position: absolute;
 }
 
 p {
-	font-family: tahoma, arial, sans-serif;
+	font-family: @body-font, @sans;
 	font-size: 69.25%;
 }
 
@@ -43,11 +46,11 @@ div {
 }
 
 .left-line {
-	background: url(../../images/double-left.png) no-repeat top center;
+	background: url(../../images/double-left.png) @back-pos;
 }
 
 .right-line {
-	background: url(../../images/double-right.png) no-repeat top center;
+	background: url(../../images/double-right.png) @back-pos;
 }
 
 .left-line, .right-line {
@@ -56,22 +59,22 @@ div {
 	height: 100%;
 	width: 100%;
 	z-index: 300;
-	opacity: .5;
+	opacity: @default-opac;
 }
 
 .close-line-left, .close-line-right {
-	margin-left:-607px;
-	left:50%;
+	margin-left: -607px;
+	left: 50%;
 }
 
 .menu-bar {
 	text-align: center;
+	position: fixed;
 	width: 400px;
 	height: 200px;
 	margin-left: -200px;
 	left: 50%;
-	position: fixed;
-	background: url(../../images/menu-big.png) center top no-repeat;
+	background: url(../../images/menu-big.png) @back-pos;
 	z-index: 600;
 }
 
@@ -92,7 +95,7 @@ div {
 }
 
 .menu-bar ul li:hover {
-	opacity: .6;
+	opacity: @default-opac;
 }
 
 .menu-bar ul li a {
@@ -111,7 +114,7 @@ div {
 }
 
 .logo {
-	background: url(../../images/small-logo.png) center no-repeat;
+	background: url(../../images/small-logo.png) @back-pos;
 	height: 75px;
 	width: 75px;
 	margin: 0 auto;
@@ -136,7 +139,7 @@ div {
 /* Index */
 
 .straylogo {
-	background: url(../../images/straytype.png) center top no-repeat;
+	background: url(../../images/straytype.png) @back-pos;
 	opacity: .8;
 	position: fixed;
 	width: 100%;
@@ -163,7 +166,7 @@ div {
 	text-align: left;
 	background-color: #FFF;
 	height: 100%;
-	opacity: .6;
+	opacity: @default-opac;
 }
 
 ul.videos {
@@ -183,7 +186,7 @@ iframe {
 /* Contact */
 
 .diamond {
-	background: url(../../images/diamond.png) center top no-repeat;
+	background: url(../../images/diamond.png) @back-pos;
 	position: fixed;
 	width: 519px;
 	height: 464px;
@@ -191,7 +194,7 @@ iframe {
 	margin-left: -260px;
 	margin-top: 161px;
 	z-index: 1000;
-	opacity: .6;
+	opacity: @default-opac;
 }
 
 .diamond form {
