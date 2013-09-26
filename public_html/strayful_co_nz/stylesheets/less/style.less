@@ -200,48 +200,23 @@ div {
 
 }
 
-.gallery {
-	@starting_pos: -20px;
-	@jump: 280px;
-	.img_1, .img_2, .img_3, .img_4, .img_5, .img_6 {
-		position: fixed;
-		top: 0;
+#gallery {
+	li {
+		height:600px;
+		width: 20%;
+		float: left;
+		display: block;
+		img {
+			@width: 450px;
+			width: @width;
+			left: 50%;
+		}
 	}
+	li:hover {
+		cursor:pointer;
+		.drop-shadow();
 
-	.img_1 {
-		z-index: 500;
-		margin-left: -350px;
 	}
-
-	.img_2 {
-		z-index: 400;
-		margin-left: (@starting_pos + @jump*0);
-	}
-
-	.img_3 {
-		z-index: 300;
-		margin-left: (@starting_pos + @jump*1);
-	}
-
-	.img_4 {
-		z-index: 200;
-		margin-left: (@starting_pos + @jump*2);
-	}
-
-	.img_5 {
-		z-index: 100;
-		margin-left: (@starting_pos + @jump*3);
-	}
-
-	.img_6 {
-		z-index: 80;
-		margin-left: (@starting_pos + @jump*4);
-	}
-
-	.item:hover {
-		cursor: pointer;
-	}
-
 }
 
 .arrows {
@@ -347,7 +322,7 @@ div {
 		}
 
 		.leftcol {
-			width: 52%;
+			width: 515px;
 			margin-left: 5%;
 			float: left;
 
@@ -360,14 +335,15 @@ div {
 		
 		.social {
 			background: url(../../images/social.png) top left no-repeat;
-			width: 5%;
+			width: 30px;
+			margin-right: 2%;
 			float: left;
 			height: 315px;
 			.opacity(.8);
 		}
 
 		.rightcol {
-			width: 33%;
+			width: 30%;
 			margin-right: 5%;
 			float: left;
 

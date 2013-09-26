@@ -212,41 +212,21 @@ div {
 .gallery-options .right .middle {
   margin-left: 110px;
 }
-.gallery .img_1,
-.gallery .img_2,
-.gallery .img_3,
-.gallery .img_4,
-.gallery .img_5,
-.gallery .img_6 {
-  position: fixed;
-  top: 0;
+#gallery li {
+  height: 600px;
+  width: 20%;
+  float: left;
+  display: block;
 }
-.gallery .img_1 {
-  z-index: 500;
-  margin-left: -350px;
+#gallery li img {
+  width: 450px;
+  left: 50%;
 }
-.gallery .img_2 {
-  z-index: 400;
-  margin-left: -20px;
-}
-.gallery .img_3 {
-  z-index: 300;
-  margin-left: 260px;
-}
-.gallery .img_4 {
-  z-index: 200;
-  margin-left: 540px;
-}
-.gallery .img_5 {
-  z-index: 100;
-  margin-left: 820px;
-}
-.gallery .img_6 {
-  z-index: 80;
-  margin-left: 1100px;
-}
-.gallery .item:hover {
+#gallery li:hover {
   cursor: pointer;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 .arrows {
   position: fixed;
@@ -361,7 +341,7 @@ div {
   float: left;
 }
 .container .videos .leftcol {
-  width: 52%;
+  width: 515px;
   margin-left: 5%;
   float: left;
 }
@@ -372,7 +352,8 @@ div {
 }
 .container .videos .social {
   background: url(../../images/social.png) top left no-repeat;
-  width: 5%;
+  width: 30px;
+  margin-right: 2%;
   float: left;
   height: 315px;
   -moz-opacity: 0.8;
@@ -383,7 +364,7 @@ div {
   filter: alpha(opacity=80);
 }
 .container .videos .rightcol {
-  width: 33%;
+  width: 30%;
   margin-right: 5%;
   float: left;
 }
