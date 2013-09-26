@@ -56,8 +56,11 @@ $(document).ready(function(){
 
 	/* Gallery */
 
-	galimages = $('ul.videos');
+	$('.directorySlider').directorySlider();
 
+	$( window ).resize(function() {
+		$('directorySlider').resizeWidths();
+	});
 
 	/* Values */
 
