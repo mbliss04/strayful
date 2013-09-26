@@ -16,6 +16,7 @@ $(document).ready(function(){
 
 	big_menu = $('.menu-bar');
 	small_menu = $('.menu-open');
+	gallery_menu = $('.gallery-options');
 
 	small_menu.hover(function(){
 			$(this).animate({'opacity':'.6'}, 500).css({'cursor':'pointer'})
@@ -25,11 +26,17 @@ $(document).ready(function(){
 
 	$('.logo').click(function(){
 		classSwitch(big_menu, small_menu, 'opened', 'closed');
+		//if () {
+			galleryMenu('hidden', 'shown');
+		//}
 		changeOpacity(0);
 	});
 
 	small_menu.click(function(){
 		classSwitch(small_menu, big_menu, 'opened', 'closed');
+		//if () {
+			galleryMenu('shown', 'hidden');
+		//}
 		changeOpacity(.6);
 	});
 
@@ -41,6 +48,10 @@ $(document).ready(function(){
 	function changeOpacity(change) {
 		$('.left-line').animate({'opacity': change}, 700);
 		$('.right-line').animate({'opacity': change}, 700);
+	}
+
+	function galleryMenu(class1, class2) {
+		gallery_menu.switchClass(class1, class2, 1000);
 	}
 
 	/* Gallery */
