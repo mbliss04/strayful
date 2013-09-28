@@ -48,7 +48,7 @@
        var url = '#';
 
        while(slideNumber <= config.numslides){
-         slides.push('<img id="gallery_' + slideNumber + '" src="' + config.directory + config.filebase + slideNumber + '.' + config.extension + '" />');
+         slides.push('<div class="centered"><a href="#"><img id="gallery_' + slideNumber + '" src="' + config.directory + config.filebase + slideNumber + '.' + config.extension + '" /></a></div>');
          slideNumber++;
        }
 
@@ -57,12 +57,15 @@
        var slideWrap = $('<div class="' + elemId + '-slide-wrap" ></div>');
            slideWrap.appendTo(elem);
 
+        // give centered class appropriate width
+        $('.centered').css({'width': element_width });
+
         // append slide and position absolutley
        $.each(slides, function(index, val) {
          $(val).css({
-           position: 'fixed',
-           top: 0,
-           left: 0 + (element_width*index)
+            position: 'fixed',
+            top: 0,
+            left: 0 + (element_width*index)
          }).appendTo(slideWrap);
        });
    };
