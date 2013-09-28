@@ -127,7 +127,7 @@ div {
   position: fixed;
   left: 50%;
   margin-left: -95px;
-  z-index: 8000;
+  z-index: 800;
 }
 .logo {
   background: url(../../images/small-logo.png) no-repeat top center;
@@ -135,7 +135,7 @@ div {
   width: 75px;
   margin: 0 auto;
   margin-top: 27.5px;
-  z-index: 500;
+  z-index: 600;
   -moz-opacity: 0;
   -khtml-opacity: 0;
   -webkit-opacity: 0;
@@ -168,16 +168,17 @@ div {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
   filter: alpha(opacity=80);
   position: fixed;
-  width: 100%;
-  height: 100%;
-  bottom: 0;
+  width: 900px;
+  height: 800px;
+  left: 50%;
+  margin-left: -450px;
   z-index: 200;
 }
 /* Gallery */
 .gallery-options {
-  z-index: 600;
-  text-align: center;
   position: fixed;
+  z-index: 300;
+  text-align: center;
   width: 1600px;
   height: 90px;
   left: 50%;
@@ -212,45 +213,55 @@ div {
 .gallery-options .right .middle {
   margin-left: 110px;
 }
-#gallery li {
-  height: 600px;
-  width: 20%;
-  float: left;
+.centered {
   display: block;
+  float: left;
 }
-#gallery li img {
-  width: 450px;
-  left: 50%;
-}
-#gallery li:hover {
+.centered:hover {
   cursor: pointer;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
-.arrows {
-  position: fixed;
-  z-index: 500;
-  width: 100%;
-  height: 100%;
+.centered:hover img {
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  -webkit-opacity: 0.7;
+  opacity: 0.7;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+  filter: alpha(opacity=70);
 }
-.arrows .rightarrow {
-  float: right;
-  margin-right: 10px;
-  margin-top: 360px;
+.back {
+  left: 0;
+  background-position: 0px 0px;
 }
-.arrows .rightarrow:hover {
+.next {
+  right: 0;
+  background-position: 80px 0px;
+}
+.next,
+.back {
+  z-index: 300;
+  top: 50%;
+  margin-top: -72.5px;
+}
+.next,
+.back {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 145px;
+  overflow: hidden;
   cursor: pointer;
+  background-image: url(../../images/arrowsprite3.png);
+  text-indent: -1000px;
   -moz-opacity: 0.8;
   -khtml-opacity: 0.8;
   -webkit-opacity: 0.8;
   opacity: 0.8;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
   filter: alpha(opacity=80);
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
+}
+.scroll {
+  background-image: url(../../images/background-);
 }
 /* Values */
 .elements {
@@ -279,9 +290,11 @@ div {
   float: left;
 }
 .elements .box .left {
-  margin-left: 450px;
+  float: right;
+  margin-right: 100px;
 }
 .elements .box .right {
+  float: left;
   margin-left: 100px;
 }
 .elements .top {
@@ -333,7 +346,7 @@ div {
   background-color: rgba(255, 255, 255, 0.5);
   width: 70%;
   height: 100%;
-  padding: 210px 0 90px 0;
+  padding: 120px 0 90px 0;
   text-align: left;
 }
 .container .videos li {
