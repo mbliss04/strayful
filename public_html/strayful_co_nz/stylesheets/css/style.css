@@ -14,6 +14,10 @@ body {
   font-family: 'amatic_scregular', tahoma, sans-serif;
   font-size: 150%;
   background: url(../../images/yellowsky.jpg) no-repeat #000000 fixed top right;
+  overflow-y: hidden;
+}
+body:hover {
+  overflow-y: scroll;
 }
 #content-wrapper {
   display: none;
@@ -282,9 +286,6 @@ div {
   display: block;
   float: left;
 }
-.elements .element_sprite:hover {
-  cursor: pointer;
-}
 .elements .box {
   width: 50%;
   float: left;
@@ -337,7 +338,7 @@ div {
   color: #e6e6e6;
 }
 .description .info {
-  height: 100px;
+  height: 130px;
   overflow: scroll;
 }
 /* Media */
@@ -346,7 +347,7 @@ div {
   background-color: rgba(255, 255, 255, 0.5);
   width: 70%;
   height: 100%;
-  padding: 120px 0 90px 0;
+  padding: 0 0 90px 0;
   text-align: left;
 }
 .container .videos li {

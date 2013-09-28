@@ -20,6 +20,11 @@ body {
 	font-family: @amatic, @body-font, @sans;
 	font-size: 150%;
 	background: url(../../images/yellowsky.jpg) no-repeat #000 fixed top right;
+	overflow-y: hidden;
+}
+
+body:hover {
+	overflow-y:scroll;
 }
 
 #content-wrapper
@@ -261,9 +266,6 @@ div {
 		display: block;
 		float: left;
 	}
-	.element_sprite:hover {
-		cursor: pointer;
-	}
 
 	.box {
 		width: 50%;
@@ -312,7 +314,7 @@ div {
 		color: darken(white, 10%);
 	}
 	.info {
-		height: 100px;
+		height: 130px;
 		overflow: scroll;
 	}
 
@@ -325,7 +327,7 @@ div {
 	background-color: rgba(255,255,255,0.5);
 	width: 70%;
 	height: 100%;
-	padding: @default-spacing*4 0 @default-spacing*3 0;
+	padding: 0 0 @default-spacing*3 0;
 	text-align: left;
 
 	.videos {
