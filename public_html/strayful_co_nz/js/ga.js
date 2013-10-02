@@ -34,10 +34,11 @@ $(document).ready(function(){
 
 	// Change css of the small menu on hover
 	small_menu.hover(function(){
-			$(this).animate({'opacity':'.6'}, 500).css({'cursor':'pointer'})
+			$(this).animate({'opacity':'.6'}, 500).css({'cursor':'pointer'});
 		}, function(){
-			$(this).animate({'opacity':'1'}, 500).css({'cursor':'default'})
-		});
+			$(this).animate({'opacity':'1'}, 500).css({'cursor':'default'});
+		}
+	);
 
 	// Change properties of two parallel classes
 	var classSwitch = function(object1, object2, class1, class2) {
@@ -65,6 +66,32 @@ $(document).ready(function(){
 	if (content[2][0] == "M" || content[2][0] == "G") {
 		classSwitch(big_menu, small_menu, 'opened', 'closed');
 		galleryMenu('hidden', 'shown', 600);
+	}
+
+	/* Change gallery bar margins based on window width */
+
+	checkIfResize(); // Run once on page load
+
+	$(window).resize(function(){ // Run on page resize
+		checkIfResize();
+	});
+
+	function checkIfResize() { 
+		if ($(window).width() > 760) {
+			getNewGalleryDims();
+		}
+		else {
+			$('.norm').css({'margin':0});
+			$('.middle').css({'margin':0});
+		}
+	}
+
+	function getNewGalleryDims() {
+		var new_margin = $(window).width() * .04;
+		$('.gallery-options .right .middle').css({'margin-left':'110px'});
+		$('.gallery-options .left .middle').css({'margin-right':'110px'});
+		$(".gallery-options .right .norm").css({'margin-left':new_margin});
+		$(".gallery-options .left .norm").css({'margin-right':new_margin});
 	}
 
 });

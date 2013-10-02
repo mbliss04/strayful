@@ -73,11 +73,16 @@
   $.fn.resizeWidths = function() {
         var width = $(window).width();
         var element_width = (.2 * width);
-        $(".directorySlider img").each(function(index){
+        var gallery_elem = $(".directorySlider img");
+        gallery_elem.each(function(index){
             $(this).css({
               position: 'fixed',
               top: 0,
               left: 0 + (element_width*index)
+            });
+            $(this).hover(function(e){
+              gallery_elem.css({'cursor':'pointer'});
+              gallery_elem.css({'background-color':'#000'});
             });
         });
    };
