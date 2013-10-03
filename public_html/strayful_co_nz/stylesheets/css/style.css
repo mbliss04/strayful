@@ -265,7 +265,7 @@ div {
   filter: alpha(opacity=80);
 }
 .scroll {
-  background-image: url(../../images/background-);
+  background-image: url(../../images/big_transparent.gif);
 }
 /* Values */
 .elements {
@@ -355,7 +355,7 @@ div {
   float: left;
 }
 .container .videos .leftcol {
-  width: 515px;
+  width: 60%;
   margin-left: 5%;
   float: left;
 }
@@ -366,7 +366,7 @@ div {
 }
 .container .videos .social {
   background: url(../../images/social.png) top left no-repeat;
-  width: 30px;
+  width: 3%;
   margin-right: 2%;
   float: left;
   height: 315px;
