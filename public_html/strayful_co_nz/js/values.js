@@ -1,23 +1,71 @@
 $(document).ready(function(){
+
+	// Variables
+	var media_size = 480;
+
+	/* -----------------------------------
+
+	On hover call element to be shifted and 
+	display info about specific element
+
+	-------------------------------------*/
+
 	$('.element_sprite').hover(function(){
-		value = -160;
+		var value = -160;
 		shiftElement($(this), value);
 		element_id = $(this).attr("class").split(' ')[0];
-		information(element_id, "slow", 1);
+		if ($(window).width() > media_size) {
+			information(element_id, "slow", 1);
+		}
 	}, function(){
 		var value = 160;
 		shiftElement($(this), value);
-		information($(this), "fast", 0);
+		if ($(window).width() > media_size) {
+			information($(this), "fast", 0);
+		}
 	});
+
+	/* -----------------------------------
+
+	Adjust elements for smaller screens
+	on resize of the screen
+
+	-------------------------------------*/
+
+	checkIfResize(); // Run once on page load
+
+	$(window).resize(function(){ // Run on page resize
+		checkIfResize();
+	});
+
+	function checkIfResize(){ 
+		if ($(window).width() < media_size) {
+			$('.element_sprite').click(function(){
+				spreadElements(true);
+				element_id = $(this).attr("class").split(' ')[0];
+				information(element_id, "slow", 1);
+			});
+			$('.description').click(function(){
+				information($(this), "fast", 0);
+				spreadElements(false);
+			});
+		}
+		else {
+			spreadElements(false);
+		}
+	}
+
+	// Move element position over
 
 	function shiftElement(element, value) {
 		backgroundPos = element.css('backgroundPosition').split(" ");
 		xval = (backgroundPos[0].split('px'));
 		newval = parseInt(xval[0]) + value;
 		newpos = newval + 'px ' + backgroundPos[1];
-		console.log(newpos);
 		element.css({'background-position':newpos});
 	}
+
+	// Display info about values 
 
 	function information(id, easing, option) {
 		$(".diamond").fadeTo(easing, option);
@@ -34,4 +82,16 @@ $(document).ready(function(){
 			$(".description").html('<h2>Water</h2><div class="info"><p>The river of change is constantly flowing, and we sail it with gusto. We believe that green design shouldn’t be a fad but a design standard. In the spirit of kiwi ingenuity, Stray sees gold where others see waste.</p></div>').fadeTo(easing, option);
 		}
 	}
+
+	// Spread elements off page on click
+
+	function spreadElements(spread) {
+		if (spread) {
+			$('.element_sprite').fadeTo("slow", 0);
+		}
+		else {
+			$('.element_sprite').fadeTo("slow", 1);
+		}
+	}
+
 });

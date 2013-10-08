@@ -1,6 +1,16 @@
 $(document).ready(function(){
 
-	/* Fade in / out of Page Display */
+	// GLOBAL VARIABLES
+
+	var page_title = $(document).find("title").text();
+	var content = page_title.split(" ");
+	var change_top = 120;
+
+	/* -------------------------------------------------
+
+	Fade in / out of Page Display 
+
+	-------------------------------------------------*/
 
     $('#content-wrapper').delay(500).fadeIn(1000);
 
@@ -12,7 +22,11 @@ $(document).ready(function(){
           });
     });
 
-    /* Navigation */
+    /* ----------------------------------------------
+
+    Navigation Event Handlers
+
+    -------------------------------------------------*/
 
 	big_menu = $('.menu-bar');
 	small_menu = $('.menu-open');
@@ -22,14 +36,16 @@ $(document).ready(function(){
 	$('.logo').click(function(){
 		classSwitch(big_menu, small_menu, 'opened', 'closed');
 		galleryMenu('hidden', 'shown', 600);
-		changeOpacity(0);
+		changeLineOpacity(0);
+		moveContainer("up");
 	});
 
 	// Small menu event handler
 	small_menu.click(function(){
 		classSwitch(small_menu, big_menu, 'opened', 'closed');
 		galleryMenu('shown', 'hidden', 500);
-		changeOpacity(.6);
+		changeLineOpacity(.6);
+		moveContainer("down");
 	});
 
 	// Change css of the small menu on hover
@@ -47,7 +63,7 @@ $(document).ready(function(){
 	}
 
 	// Change the line opacity
-	var changeOpacity = function(change) {
+	var changeLineOpacity = function(change) {
 		$('.left-line').animate({'opacity': change}, 700);
 		$('.right-line').animate({'opacity': change}, 700);
 	}
@@ -58,17 +74,40 @@ $(document).ready(function(){
 		gallery_menu.css({'z-index':index});
 	}
 
-	/* If it is either the media or gallery page, 
-	change navigation automatically */
+	// Move container of media down if big menu opens
+	var moveContainer = function(direction) {
+		var cur_padding = parseInt($('.container').css('padding-top'));
+		if (content[2][0] == "M") {
+			if (direction == "up") {
+				cur_padding += -change_top;
+				new_padding = cur_padding + "px";
+				$('.container').css({'padding-top':new_padding});
+			}
+			else {
+				cur_padding += change_top;
+				new_padding = cur_padding + "px";				
+				$('.container').css({'padding-top':new_padding});
+			}
+		}
+	}
 
-	var page_title = $(document).find("title").text();
-	var content = page_title.split(" ");
+	/*-------------------------------------------------
+
+	If it is either the media or gallery page, 
+	change navigation automatically 
+	
+	-------------------------------------------------*/
+
 	if (content[2][0] == "M" || content[2][0] == "G") {
 		classSwitch(big_menu, small_menu, 'opened', 'closed');
 		galleryMenu('hidden', 'shown', 600);
 	}
 
-	/* Change gallery bar margins based on window width */
+	/*------------------------------------------------- 
+
+	Change gallery bar margins based on window width 
+
+	-------------------------------------------------*/
 
 	checkIfResize(); // Run once on page load
 

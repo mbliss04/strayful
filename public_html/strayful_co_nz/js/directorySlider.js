@@ -48,7 +48,7 @@
        var url = '#';
 
        while(slideNumber <= config.numslides){
-         slides.push('<div class="centered"><a href="#"><img id="gallery_' + slideNumber + '" src="' + config.directory + config.filebase + slideNumber + '.' + config.extension + '" /></a></div>');
+         slides.push('<a href="#"><img id="gallery_' + slideNumber + '" src="' + config.directory + config.filebase + slideNumber + '.' + config.extension + '" /></a></div>');
          slideNumber++;
        }
 
