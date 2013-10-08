@@ -1,13 +1,35 @@
-<html>
+<!DOCTYPE html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="description" content="Products and media from Stray co.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>Stray | Gallery</title>
 		<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
-		<script type="text/javascript" src="js/directorySlider.js"></script>
-		<script type="text/javascript" src="js/media.js"></script>
 		<script type="text/javascript" src="js/ga.js"></script>
+		<script type="text/javascript" src="js/jquery.jswipe-0.1.2.js"></script>
+		<script type="text/javascript" src="js/slider.js"></script>
+		<script type="text/javascript">
+			function ajax_json_gallery(folder) {
+				var results = $('.gallery-ul');
+				var hr = new XMLHttpRequest();
+				hr.open("POST", "json_gallery.php", true);
+				hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				hr.onreadystatechange = function() {
+					if (hr.readyState == 4 && hr.status == 200) {
+						var d = JSON.parse(hr.responseText);
+						$('.gallery-ul').innerHTML = "";
+						for (var o in d) {
+							if (d[o].src) {
+								$('.gallery-ul').append('<li class="gallery-li '+
+									d[o].category+'"><a href="'+d[o].url+'"><img class="gallery-img" src="'+d[o].src+'"/></a></li>');
+							}
+						}
+					}
+				}
+				hr.send("folder="+folder);
+				$('.gallery-ul').innerHTML = 'Content loading...';
+			}
+		</script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<link rel="shortcut icon" href="images/favicon.ico"> 
 		<!--Stylesheets-->
@@ -19,6 +41,7 @@
 		<script type="text/javascript">
 			<!--//--><![CDATA[//><!--
 			document.write( '<div id="content-wrapper">' );
+			ajax_json_gallery("images/gallery");
 			//--><!]]>
 		</script>
 		<div class="menu-bar opened">
@@ -47,9 +70,16 @@
 			</ul>
 		</div>
 		<div id="bars"></div>
-		<div class="directorySlider">
-			<a href="/scroll" class="scroll back"></a>
-			<a href="/scroll" class="scroll next"></a>
+		<div class="gallery-wrapper">
+			<div class="gallery-mask">
+				<ul class="gallery-ul"></ul>
+			</div>
+			<div class="leftbtn">
+				<div class="leftbtn-inner"></div>
+			</div>
+			<div class="rightbtn">
+				<div class="rightbtn-inner"></div>
+			</div>
 		</div>
 		<script type="text/javascript">
 			<!--//--><![CDATA[//><!--
