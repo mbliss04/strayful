@@ -93,7 +93,7 @@ div {
   text-transform: lowercase;
 }
 .menu-bar ul li a {
-  margin: 0 8;
+  margin: 0 8px;
 }
 .menu-bar ul li:hover {
   -moz-opacity: 0.6;
@@ -165,20 +165,84 @@ div {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
   filter: alpha(opacity=80);
 }
-.back {
+.gallery-wrapper {
+  width: 100%;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.gallery-wrapper .gallery-mask .gallery-ul {
+  list-style-type: none;
+}
+.gallery-wrapper .gallery-mask .gallery-ul .gallery-li {
+  background-color: white;
+  height: 800px;
+  float: left;
+  width: 20%;
+}
+.gallery-wrapper .gallery-mask .gallery-ul .gallery-li:hover {
+  margin-top: -10px;
+}
+.gallery-wrapper .leftbtn {
+  width: 75px;
+  height: 100%;
+  position: absolute;
+  top: 0;
   left: 0;
+  background: #000;
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -webkit-opacity: 0.3;
+  opacity: 0.3;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+  filter: alpha(opacity=30);
+  display: none;
+}
+.gallery-wrapper .rightbtn {
+  width: 75px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #000;
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -webkit-opacity: 0.3;
+  opacity: 0.3;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+  filter: alpha(opacity=30);
+  display: none;
+}
+.gallery-wrapper .leftbtn:hover,
+.gallery-wrapper .rightbtn:hover {
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+  filter: alpha(opacity=50);
+  cursor: pointer;
+}
+.gallery-wrapper .leftbtn-inner,
+.gallery-wrapper .rightbtn-inner {
+  background: url(../../images/galleryarrows.png) top left no-repeat;
+  width: 35px;
+  height: 80px;
+  margin: 350px auto 0 auto;
+}
+.gallery-wrapper .leftbtn-inner {
   background-position: 0px 0px;
 }
-.next {
-  right: 0;
-  background-position: 80px 0px;
+.gallery-wrapper .rightbtn-inner {
+  background-position: -35px 0px;
 }
-.next,
-.back {
-  z-index: 300;
-}
-.scroll {
-  background-image: url(../../images/big_transparent.gif);
+.gallery-wrapper:hover .rightbtn,
+.gallery-wrapper:hover .leftbtn {
+  display: block;
+  -webkit-transition: all 0.5 ease-out;
+  -moz-transition: all 0.5 ease-out;
+  -o-transition: all 0.5 ease-out;
+  transition: all 0.5 ease-out;
 }
 /* Values */
 .elements {
@@ -238,7 +302,7 @@ div {
   background-color: rgba(255, 255, 255, 0.5);
   height: 100%;
   padding: 0 0 90px 0;
-  padding: 120px 0 90px 0;
+  padding: 120px 0 150px 0;
   text-align: left;
 }
 .container .videos li {
@@ -294,10 +358,19 @@ div {
 /* Contact */
 .diamond {
   position: fixed;
+  background: url(../../images/diamond.png) no-repeat top center;
+  width: 519px;
+  height: 464px;
   z-index: 1000;
+  left: 50%;
+  margin-left: -259.5px;
 }
 .diamond form {
   position: fixed;
+  width: 300px;
+  margin-top: 130px;
+  left: 50%;
+  margin-left: -150px;
 }
 #contact {
   margin: 0 auto;
@@ -466,23 +539,7 @@ div {
   }
   /* Contact */
   .diamond {
-    background-color: rgba(0, 0, 0, 0.5);
-    margin-left: 10%;
-    width: 80%;
-    height: 100%;
-    z-index: 100;
-  }
-  .diamond form {
-    width: 400px;
-    margin-top: 230px;
-    left: 50%;
-    margin-left: -200px;
-  }
-  .diamond form h2 {
-    font-size: 120%;
-  }
-  #submit {
-    top: 450px;
+    margin-top: 145px;
   }
 }
 /* < --- Normal CSS --- > */
@@ -498,7 +555,7 @@ div {
   .right-line {
     position: fixed;
     bottom: 0;
-    height: 100%;
+    height: 101%;
     width: 100%;
     z-index: 300;
     -moz-opacity: 0.6;
@@ -569,7 +626,7 @@ div {
   }
   .elements .top {
     float: left;
-    margin: 170px 0 120px 0;
+    margin: 160px 0 120px 0;
     width: 100%;
   }
   .elements .bottom {
@@ -581,18 +638,7 @@ div {
   }
   /* Contact */
   .diamond {
-    background: url(../../images/diamond.png) no-repeat top center;
-    width: 519px;
-    height: 464px;
-    margin-top: 157px;
-    left: 50%;
-    margin-left: -259.5px;
-  }
-  .diamond form {
-    width: 300px;
-    margin-top: 130px;
-    left: 50%;
-    margin-left: -150px;
+    margin-top: 150px;
   }
   #submit {
     top: 485px;
