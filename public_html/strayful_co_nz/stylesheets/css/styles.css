@@ -5,11 +5,12 @@
     A set of useful LESS mixins
     More info at: http://lesselements.com
   ---------------------------------------------------*/
-/*  Author: McCall Bliss;
+/* ----------------------------------
+	Author: McCall Bliss;
 	Created: August 9th 2013;
+	Last Modified: October 10th 2013;
 	Company: Stray;
-*/
-/* Universal */
+-----------------------------------*/
 /* Variables */
 /* Media Query Sizes */
 /* General Styles */
@@ -61,6 +62,12 @@ div {
   opacity: 1;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
   filter: alpha(opacity=100);
+}
+.nodisplay {
+  display: none;
+}
+.displayed {
+  display: block;
 }
 .menu-bar {
   text-align: center;
@@ -256,14 +263,27 @@ div {
   height: 100%;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.7);
-  display: none;
-  opacity: 0;
 }
 .product-wrapper .product {
   float: left;
 }
 .product-wrapper .product-descrip {
   float: left;
+  margin-left: 5%;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+.product-wrapper .product-descrip #descrip {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+}
+.product-wrapper .product-descrip #backbtn {
+  width: 100%;
+}
+.product-wrapper .product-descrip #backbtn img {
+  margin: 0 auto;
 }
 /* Values */
 .elements {

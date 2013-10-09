@@ -1,12 +1,13 @@
 @charset "UTF-8";
 @import "elements.less";
 
-/*  Author: McCall Bliss;
+/* ----------------------------------
+	Author: McCall Bliss;
 	Created: August 9th 2013;
+	Last Modified: October 10th 2013;
 	Company: Stray;
-*/
+-----------------------------------*/
 
-/* Universal */
 /* Variables */
  
 @amatic: 'amatic_scregular';
@@ -19,6 +20,7 @@
 @media_height: 315px;
 
 /* Media Query Sizes */
+
 @mobile_device: 480px;
 @gallery_cut_off: 760px;
 
@@ -71,6 +73,14 @@ div {
 
 .shown {
  	.opacity(1);
+}
+
+.nodisplay {
+	display: none;
+}
+
+.displayed {
+	display: block;
 }
 
 .menu-bar {
@@ -249,13 +259,27 @@ div {
 	height: 100%;
 	z-index: 100;
 	background-color: rgba(0,0,0,0.7);
-	display: none;
-	opacity: 0;
 	.product {
 		float: left;
 	}
 	.product-descrip {
 		float: left;
+		margin-left: 5%;
+		width: 100%;
+		height: 100%;
+		background-color: red;
+		#descrip {
+			width: 500px;
+			height: 500px;
+			background-color: white;
+		}
+		#backbtn {
+			width: 100%;
+			img {
+				margin: 0 auto;
+			}
+		}
+
 	}
 
 }
