@@ -69,22 +69,24 @@
 			function gallerydown(image) {
 				var source = 'src="images/gallery/'+image+'"></a>';
 				var productdisplay = '<a href="#" onclick="galleryup()"><img '+source;
+				$('.product').empty();
 				$('.gallery-ul').switchClass('moveup', 'movedown', 500);
-				$('.product-wrapper').css({'display':'block'});
+				$('.product-wrapper').switchClass('nodisplay', 'displayed', 0);
 				$('.product').append(productdisplay);
-				$('.product-wrapper').animate({
-				    opacity: 1,
-				  }, 2000 );
+				$('.product-wrapper').switchClass('hidden', 'shown', 1000);
 			};
 
 			// reveals entire gallery again
 			function galleryup() {
-				$('.product-wrapper').animate({
-				    opacity: 0,
-				  }, 2000 );
-				$('.product-wrapper').css({'display':'none'});
-				$('.product').empty();
-				//$('.gallery-ul').switchClass('movedown', 'moveup', 500);
+				$('.product-wrapper').switchClass('shown', 'hidden', 1000);
+				$('.gallery-ul').css({'opacity':0});
+				window.setTimeout( function changeBack() {
+					$('.gallery-ul').switchClass('movedown', 'moveup', 0);
+					$('.gallery-ul').animate ({
+						opacity: 1
+					}, 1000);
+					$('.product-wrapper').switchClass('displayed', 'nodisplay', 500);
+				}, 300);
 			}
 
 		</script>
@@ -139,11 +141,13 @@
 				<div class="rightbtn-inner"></div>
 			</div>
 		</div>
-		<div class="product-wrapper">
+		<div class="product-wrapper hidden nodisplay">
 			<div class="product"></div>
-			<div class="product-descrip"></div>
-			<div class="backbtn">
-				<a href="#" onclick="galleryup()"><img src="images/backbtn.png"></a>
+			<div class="product-descrip">
+				<div id="descrip">Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words </div>
+				<div id="backbtn">
+					<a href="#" onclick="galleryup()"><img src="images/backbtn.png"></a>
+				</div>
 			</div>
 		</div>
 		<script type="text/javascript">
