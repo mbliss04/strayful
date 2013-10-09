@@ -175,7 +175,6 @@ div {
   list-style-type: none;
 }
 .gallery-wrapper .gallery-mask .gallery-ul .gallery-li {
-  background-color: white;
   height: 800px;
   float: left;
   width: 20%;
@@ -184,7 +183,6 @@ div {
   margin-top: -10px;
 }
 .gallery-wrapper .leftbtn {
-  width: 75px;
   height: 100%;
   position: absolute;
   top: 0;
@@ -199,7 +197,6 @@ div {
   display: none;
 }
 .gallery-wrapper .rightbtn {
-  width: 75px;
   height: 100%;
   position: absolute;
   top: 0;
@@ -243,6 +240,30 @@ div {
   -moz-transition: all 0.5 ease-out;
   -o-transition: all 0.5 ease-out;
   transition: all 0.5 ease-out;
+}
+.movedown {
+  position: fixed;
+  margin-top: 1000px;
+}
+.moveup {
+  margin-top: 0;
+}
+.product-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  opacity: 0;
+}
+.product-wrapper .product {
+  float: left;
+}
+.product-wrapper .product-descrip {
+  float: left;
 }
 /* Values */
 .elements {
@@ -601,6 +622,21 @@ div {
     width: 515px;
     height: 315px;
   }
+  /* Gallery */
+  #product-wrapper {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  #product-wrapper #product {
+    float: left;
+    width: 70%;
+  }
+  #product-wrapper #product-descrip {
+    float: left;
+    width: 29%;
+    border-left: 5px;
+  }
   /* Values */
   .elements {
     position: relative;
@@ -667,6 +703,10 @@ div {
   .gallery-options .right .middle {
     margin-left: 110px;
   }
+  .leftbtn,
+  .rightbtn {
+    width: 75px;
+  }
   #bars {
     display: none;
   }
@@ -695,6 +735,10 @@ div {
     float: left;
     width: 33.33333%;
     text-align: center;
+  }
+  .leftbtn,
+  .rightbtn {
+    width: 40px;
   }
   #bars {
     top: 0;
