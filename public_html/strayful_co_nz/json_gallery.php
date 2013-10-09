@@ -10,10 +10,11 @@
 
 	$i = 0;
 	while ($file = readdir($dirHandle)) {
-		if (!(is_dir($file)) && strpos($file, '.jpg')) {
+		if (!(is_dir($file)) && strpos($file, '.jpg') && $file != 'filler.jpg') {
 			$i++;
 			$src = "$dir$file";
-			$jsonData .= '"img'.$i.'":{ "num":"'.$i.'","src":"'.$src.'", "url":"display.php/?image='.$file.'", "category":"all" },';
+			list($category, $number) = split('[_]', $file);
+			$jsonData .= '"img'.$i.'":{ "num":"'.$i.'","src":"'.$src.'", "url":"#", "name":"'.$file.'", "category":"'.$category.'" },';
 		}
 	}
 
