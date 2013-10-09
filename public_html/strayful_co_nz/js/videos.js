@@ -3,8 +3,10 @@ $(document).ready(function(){
   // Find all YouTube/Vimeo videos
   var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src^='http://www.youtube.com']"),
 
-  // The element that is fluid width
-  $fluidEl = $(".container .videos .leftcol");
+    // The element that is fluid width
+    $fluidEl = $(".container .videos .leftcol");
+
+  console.log($allVideos);
 
   // Figure out and save aspect ratio for each video
   $allVideos.each(function() {
