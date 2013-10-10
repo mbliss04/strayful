@@ -69,10 +69,13 @@
 			function gallerydown(image) {
 				var source = 'src="images/gallery/'+image+'"></a>';
 				var productdisplay = '<a href="#" onclick="galleryup()"><img '+source;
+				var productcontent = '<div id="title">'+image+'</div><hr><p></p><hr>';
 				$('.product').empty();
+				$('#content').empty();
 				$('.gallery-ul').switchClass('moveup', 'movedown', 500);
 				$('.product-wrapper').switchClass('nodisplay', 'displayed', 0);
 				$('.product').append(productdisplay);
+				$('#content').append(productcontent);
 				$('.product-wrapper').switchClass('hidden', 'shown', 1000);
 			};
 
@@ -144,9 +147,15 @@
 		<div class="product-wrapper hidden nodisplay">
 			<div class="product"></div>
 			<div class="product-descrip">
-				<div id="descrip">Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words Test words </div>
-				<div id="backbtn">
-					<a href="#" onclick="galleryup()"><img src="images/backbtn.png"></a>
+				<div id="descrip">
+					<div id="content"></div>
+					<ul id="social">
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Facebook</a></li>
+					</ul>
+					<div id="togoback">
+						<a href="#" onclick="galleryup()"><img src="images/backtri.png"></a>
+					</div>
 				</div>
 			</div>
 		</div>
