@@ -64,7 +64,7 @@ a {
 div {
  	display: block;
 }
- 
+
 /* Navigation */
 
 .hidden {
@@ -261,23 +261,48 @@ div {
 	background-color: rgba(0,0,0,0.7);
 	.product {
 		float: left;
+		margin-left: 10%;
 	}
 	.product-descrip {
-		float: left;
-		margin-left: 5%;
-		width: 100%;
+		position: fixed;
+		margin-right: 10%;
+		width: 90%;
 		height: 100%;
-		background-color: red;
 		#descrip {
-			width: 500px;
-			height: 500px;
-			background-color: white;
-		}
-		#backbtn {
-			width: 100%;
-			img {
+			float: right;
+			margin-top: 100px;
+			width: 400px;
+			background-color: rgba(255,255,255,0.7);
+			#content {
+				width: 80%;
 				margin: 0 auto;
+				#title {
+					text-align: center;
+					margin: 30px 0 20px 0;
+				}
 			}
+			#social {
+				margin: 20px 10% 20px 10%;
+				padding: 5px;
+				text-align: center;
+				width: 80%;
+				background-color: rgba(0,0,0,0.7);
+				display: inline-block;
+				li {
+					list-style-type: none;
+					display: inline;
+					margin: 10px;
+				}
+			}
+			#togoback {
+				.opacity(.8);
+				margin: 0 auto;
+				text-align: center;
+			}
+			#togoback:hover {
+				cursor: pointer;
+			}
+
 		}
 
 	}
