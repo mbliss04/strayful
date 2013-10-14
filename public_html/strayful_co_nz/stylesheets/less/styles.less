@@ -259,50 +259,54 @@ div {
 	height: 100%;
 	z-index: 100;
 	background-color: rgba(0,0,0,0.7);
-	.product {
-		float: left;
-		margin-left: 10%;
-	}
-	.product-descrip {
-		position: fixed;
-		margin-right: 10%;
-		width: 90%;
+	#entireproduct {
+		width: 70%;
 		height: 100%;
-		#descrip {
-			float: right;
-			margin-top: 100px;
-			width: 400px;
-			background-color: rgba(255,255,255,0.7);
-			#content {
-				width: 80%;
-				margin: 0 auto;
-				#title {
-					text-align: center;
-					margin: 30px 0 20px 0;
+		margin: 0 auto;
+		background-color: rgba(255,255,255,0.7);
+		.product-frame {
+			float: left;
+			width: 65%;
+			height: 100%;
+			.product {
+				margin: 100px 5% 0 5%;
+				width: 90%;
+				height: 500px;
+				overflow: hidden;
+				img {
+					max-width: 100%;
 				}
 			}
-			#social {
-				margin: 20px 10% 20px 10%;
-				padding: 5px;
+		}
+		.product-descrip {
+			float: left;
+			width: 35%;
+			height: 100%;
+			#descrip {
+				width: 90%;
+				margin-right: 10%;
+				margin-top: 100px;
 				text-align: center;
-				width: 80%;
-				background-color: rgba(0,0,0,0.7);
-				display: inline-block;
-				li {
-					list-style-type: none;
-					display: inline;
-					margin: 10px;
+				float: left;
+				#content {
+					#title {
+						margin-bottom: 20px;
+						font-size: 150%;
+					}
 				}
-			}
-			#togoback {
-				.opacity(.8);
-				margin: 0 auto;
-				text-align: center;
-			}
-			#togoback:hover {
-				cursor: pointer;
-			}
+				#social {
+					margin-top: 30px;
+					display: inline-block;
+					li {
+						background-color: rgba(0,0,0,0.7);
+						list-style-type: none;
+						display: inline;
+						padding: 5px;
+						margin: 10px;
+					}
+				}
 
+			}
 		}
 
 	}
@@ -355,7 +359,6 @@ div {
 	}
 	.info {
 		height: 130px;
-		overflow: scroll;
 	}
 
 }
@@ -363,67 +366,63 @@ div {
  /* Media */
  
  .container {
+ 	width: 70%;
+ 	height: 100%;
  	margin: 0 auto;
  	background-color: rgba(255,255,255,0.5);
- 	height: 100%;
-	padding: 0 0 @default-spacing*3 0;
-	padding: @default-spacing*4 0 @default-spacing*5 0;
- 	text-align: left;
+	padding-top: 120px;
  
  	.videos {
+ 		width: 100%;
+ 		float: left;
+
  		li {
- 			padding-bottom: 50px;
+ 			width: 100%;
  			float: left;
- 		}
+ 			margin-bottom: 50px;
 
-		.leftcol {
-			width: 55%;
-			margin-left: 5%;
-			float: left;
-
-			iframe {
-				display: block;
-				width: 515px;
-				height: 315px;
-			}
-		}
- 		
- 		.social {
- 			background: url(../../images/social.png) top left no-repeat;
- 			width: 30px;
- 			margin-right: 2%;
- 			float: left;
-			height: @media_height;
- 			.opacity(.8);
- 		}
- 
-		.rightcol {
- 			width: 25%;
- 			margin-right: 5%;
- 			float: right;
-			height: @media_height;
- 
- 			.vidtitle {
- 				margin-bottom: 10px;
-				h4 {
-					font-size: 150%;
+ 			.leftcol {
+				width: 55%;
+				margin-left: 5%;
+				float: left;
+				iframe {
+					display: block;
 				}
-				hr {
- 					width: 100%;
- 					color: black;
- 				}
+			}
 
- 			}
- 
- 			.videscription {
- 				height: 200px;
-				overflow: scroll;
+	 		.social {
+	 			background: url(../../images/social.png) top left no-repeat;
+	 			width: 7%;
+	 			height: 150px;
+	 			float: left;
+	 			.opacity(.8);
+	 		}
 
- 				p {
- 					padding-bottom: 10px;
- 				}
+			.rightcol {
+	 			width: 28%;
+	 			margin-right: 5%;
+	 			float: left;
+	 
+	 			.vidtitle {
+	 				margin-bottom: 10px;
+					h4 {
+						font-size: 150%;
+					}
+					hr {
+	 					width: 100%;
+	 					color: black;
+	 				}
+	 			}
+	 
+	 			.videscription {
+					overflow: scroll;
+	 				p {
+	 					padding-bottom: 10px;
+	 				}
 
- 			}
+	 			}
+
+	 		}
 
  		}
 
@@ -550,20 +549,15 @@ div {
 	/* Media */
 
 	.container {
-		width: 100%;
 
-		.leftcol {
+		.leftcol, 
+		.rightcol {
 			width: 90%;
 			margin-left: 5%;
 			margin-right: 5%;
 			float: left;
-
-			iframe {
-				display: block;
-				width: 515px;
-				height: 315px;
-			}
 		}
+
 	}
 
 	.footer {
@@ -638,26 +632,6 @@ div {
 		.centered(@width);
 		z-index: 200;
 		top: 5%;
-	}
-
-	/* Media */
-
-	.container {
-		width: 70%;
-
-		.leftcol {
-			width: 515px;
-			margin-left: 5%;
-			float: left;
-
-			iframe {
-				display: block;
-				width: 515px;
-				height: @media_height;
-			}
-
-		}
-
 	}
 
 	/* Gallery */
@@ -767,6 +741,13 @@ div {
 	#bars {
 		display: none;
 	}
+
+	/* Media */
+
+	.container {
+		width: 70%;
+	}
+
 }
 
 /* Media query for gallery bar */
