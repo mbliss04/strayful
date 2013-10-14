@@ -6,7 +6,8 @@
 		<title>Stray | Gallery</title>
 		<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" src="js/ga.js"></script>
-		<script type="text/javascript" src="js/jquery.jswipe-0.1.2.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 		<script type="text/javascript" src="js/slider.js"></script>
 		<script type="text/javascript">
 			function ajax_json_gallery(folder) {
@@ -33,36 +34,47 @@
 		<script type="text/javascript">
 			// fills gallery with only categorized elements
 			function reveal(element) {
-				var count = 0;
-				var temp;
-				// gets type of element
-				//var type = $(this)[0].className.split(' ')[1];
-		    	$('.gallery-li').each(function() {
-		    		temp = $(this);
-		    		if ($(this).hasClass(element)) {
-		    			$(this).remove();
-		    			$('.gallery-ul').prepend(temp);
-		    			count++;
-		    		}
-		    		else if ($(this).hasClass('filler')) {
-		    			$(this).remove()
-		    		}
-		    		else {
-		    			$(this).remove();
-		    			$('.gallery-ul').append(temp);
-		    		}
-		    	});
-		    	var last_image = count-1;
-		    	var filler_image = "<li class='gallery-li filler'><a href='#'><img src='images/gallery/filler.jpg'></a></li>";
-		    	while (count < 5) {
-		    		if (last_image < 0) {
-		    			$('.gallery-ul.').prepend(filler_image);
-		    		}
-		    		else {
-		    			$(".gallery-li").eq(last_image).after(filler_image);
-		    		}
-		    		count++;
-		    	}
+				if ($('.product-wrapper').hasClass('shown')) {
+					galleryup();
+					window.setTimeout( categorize(), 1000 );  
+				}
+				else {
+					categorize();
+				}
+				function categorize() {
+					var count = 0;
+					var temp;
+					// gets type of element
+					//var type = $(this)[0].className.split(' ')[1];
+			    	$('.gallery-li').each(function() {
+			    		temp = $(this);
+			    		if ($(this).hasClass(element)) {
+			    			$(this).remove();
+			    			$('.gallery-ul').prepend(temp);
+			    			count++;
+			    		}
+			    		else if ($(this).hasClass('filler')) {
+			    			$(this).remove()
+			    		}
+			    		else {
+			    			$(this).remove();
+			    			$('.gallery-ul').append(temp);
+			    		}
+			    	});
+
+			    	var last_image = count-1;
+			    	var filler_image = "<li class='gallery-li filler'><a href='#'><img src='images/gallery/filler.jpg'></a></li>";
+			    	while (count < 5) {
+			    		if (last_image < 0) {
+			    			$('.gallery-ul.').prepend(filler_image);
+			    		}
+			    		else {
+			    			$(".gallery-li").eq(last_image).after(filler_image);
+			    		}
+			    		count++;
+			    	}
+			    }
+
 			};
 
 			// isolates single gallery image
@@ -124,12 +136,12 @@
 			<ul class="left">
 				<li class="middle"><a href="#" onclick="reveal('p')">Ponchos</a></li>
 				<li class="norm"><a href="#" onclick="reveal('bb')">Board Bags</a></li>
-				<li class="norm"><a href="#" onclick="reveal('wd')">Wet/Dry Bags</a><li>
+				<li class="norm"><a href="#" onclick="reveal('all')">All</a><li>
 			</ul>
 			<ul class="right">
-				<li class="middle"><a href="#" onclick="reveal('tp')">Teepees</a></li>
+				<li class="middle"><a href="#" onclick="reveal('wd')">Wet/Dry Bags</a></li>
 				<li class="norm"><a href="#" onclick="reveal('kk')">Knick-Knacks</a></li>
-				<li class="norm"><a href="#" onclick="reveal('sun')">Sunnies</a></li>
+				<li class="norm"><a href="#" onclick="reveal('tp')">Teepees</a></li>
 			</ul>
 		</div>
 		<div id="bars"></div>
@@ -145,16 +157,22 @@
 			</div>
 		</div>
 		<div class="product-wrapper hidden nodisplay">
-			<div class="product"></div>
-			<div class="product-descrip">
-				<div id="descrip">
-					<div id="content"></div>
-					<ul id="social">
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Facebook</a></li>
-					</ul>
-					<div id="togoback">
-						<a href="#" onclick="galleryup()"><img src="images/backtri.png"></a>
+			<div id="entireproduct">
+				<div class="product-frame">
+					<div class="product"></div>
+				</div>
+				<div class="product-descrip">
+					<div id="descrip">
+						<div id="content"></div>
+						<ul id="social">
+							<li><a href="https://twitter.com/intent/tweet?url=https://strayful.com/images/gallery/&related=Strayful,twitterapi">Twitter</a></li>
+							<li><a href="#" 
+									onclick="window.open(
+									    'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+									    'facebook-share-dialog', 
+									    'width=626,height=436'); 
+									    return false;">Facebook</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
