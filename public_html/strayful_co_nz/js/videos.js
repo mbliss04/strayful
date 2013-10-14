@@ -6,8 +6,6 @@ $(document).ready(function(){
     // The element that is fluid width
     $fluidEl = $(".container .videos .leftcol");
 
-  console.log($allVideos);
-
   // Figure out and save aspect ratio for each video
   $allVideos.each(function() {
 

@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	// Variables
 	var media_size = 480;
+	var hidden = false;
 
 	/* -----------------------------------
 
@@ -39,19 +40,26 @@ $(document).ready(function(){
 	});
 
 	function checkIfResize(){ 
+		// if viewing mobile size
 		if ($(window).width() < media_size) {
+			// if click on element, move off page and reveal info
 			$('.element_sprite').click(function(){
-				spreadElements(true);
+				hidden = true;
+				moveElements(hidden);
 				element_id = $(this).attr("class").split(' ')[0];
 				information(element_id, "slow", 1);
 			});
+			// if click description, hide description and reveal elements
 			$('.description').click(function(){
 				information($(this), "fast", 0);
-				spreadElements(false);
+				moveElements(!hidden);
+				hidden = false;
 			});
 		}
-		else {
-			spreadElements(false);
+		// otherwise if the screen is bigger and 
+		//the elements are hidden, reveal them
+		else if ($(window).width() > media_size && hidden) {
+			moveElements(!hidden);
 		}
 	}
 
@@ -68,6 +76,7 @@ $(document).ready(function(){
 	// Display info about values 
 
 	function information(id, easing, option) {
+		//$(".diamond").removeClass('hidden');
 		$(".diamond").fadeTo(easing, option);
 		if (element_id == "fire") {
 			$(".description").html('<h2>Fire</h2><div class="info"><p>There lies a secret passion in all of us: an ember smouldering in our bones waiting to be set alight. Stray is the stoker, poking and prodding to bring that creativity to a blaze with a bold and lively style.</p></div>').fadeTo(easing, option);
@@ -85,11 +94,11 @@ $(document).ready(function(){
 
 	// Spread elements off page on click
 
-	function spreadElements(spread) {
+	function moveElements(spread) {
 		if (spread) {
 			$('.element_sprite').fadeTo("slow", 0);
 		}
-		else {
+		if (!spread) {
 			$('.element_sprite').fadeTo("slow", 1);
 		}
 	}

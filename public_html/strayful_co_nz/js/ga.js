@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 	var page_title = $(document).find("title").text();
 	var content = page_title.split(" ");
-	var change_top = 120;
+	var change_top = 90;
 
 	/* -------------------------------------------------
 
@@ -74,20 +74,31 @@ $(document).ready(function(){
 		gallery_menu.css({'z-index':index});
 	}
 
-	// Move container of media down if big menu opens
+	// Checks which container needs to be moved based on page
 	var moveContainer = function(direction) {
-		var cur_padding = parseInt($('.container').css('padding-top'));
+		var container;
 		if (content[2][0] == "M") {
-			if (direction == "up") {
-				cur_padding += -change_top;
-				new_padding = cur_padding + "px";
-				$('.container').css({'padding-top':new_padding});
-			}
-			else {
-				cur_padding += change_top;
-				new_padding = cur_padding + "px";				
-				$('.container').css({'padding-top':new_padding});
-			}
+			container = $('.container');
+			shiftContainer(container, direction);
+		}
+		if (content[2][0] == "G") {
+			container = $('#entireproduct');
+			shiftContainer(container, direction);
+		}
+	}
+
+	// Moves the container in the direction specified
+	function shiftContainer(container, direction) {
+		var cur_padding = parseInt(container.css('padding-top'));
+		if (direction == "up") {
+			cur_padding += -change_top;
+			new_padding = cur_padding + "px";
+			container.css({'padding-top':new_padding});
+		}
+		else {
+			cur_padding += change_top;
+			new_padding = cur_padding + "px";				
+			container.css({'padding-top':new_padding});
 		}
 	}
 
