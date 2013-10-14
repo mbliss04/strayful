@@ -14,7 +14,7 @@
 			$i++;
 			$src = "$dir$file";
 			list($category, $number) = split('[_]', $file);
-			$jsonData .= '"img'.$i.'":{ "num":"'.$i.'","src":"'.$src.'", "url":"#", "name":"'.$file.'", "category":"'.$category.'" },';
+			$jsonData .= '"img'.$i.'":{ "num":"'.$i.'","src":"'.$src.'", "url":"#", "name":"'.$file.'", "category":"all '.$category.'" },';
 		}
 	}
 
