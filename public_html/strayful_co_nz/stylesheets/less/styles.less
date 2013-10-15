@@ -22,7 +22,7 @@
 /* Media Query Sizes */
 
 @mobile_device: 480px;
-@gallery_cut_off: 760px;
+@gallery_cut_off: 780px;
 
 /* General Styles */
  
@@ -297,7 +297,10 @@ div {
 				#social {
 					margin-top: 30px;
 					display: inline-block;
+					line-height: 20px;
+					background-color: red;
 					li {
+						margin-bottom: 20px;
 						background-color: rgba(0,0,0,0.7);
 						list-style-type: none;
 						display: inline;
@@ -366,6 +369,7 @@ div {
  /* Media */
  
  .container {
+ 	display: block;
  	width: 70%;
  	height: 100%;
  	margin: 0 auto;
@@ -373,35 +377,34 @@ div {
 	padding-top: 120px;
  
  	.videos {
- 		width: 100%;
- 		float: left;
 
  		li {
  			width: 100%;
  			float: left;
  			margin-bottom: 50px;
 
+ 			.leftcol, 
+ 			.social, 
+ 			.rightcol {
+ 				float: left;
+ 			}
+
  			.leftcol {
-				width: 55%;
-				margin-left: 5%;
-				float: left;
 				iframe {
 					display: block;
+					width: 512px;
+					height: 288px;
 				}
 			}
 
 	 		.social {
 	 			background: url(../../images/social.png) top left no-repeat;
-	 			width: 7%;
 	 			height: 150px;
-	 			float: left;
+	 			width: 7%;
 	 			.opacity(.8);
 	 		}
 
 			.rightcol {
-	 			width: 28%;
-	 			margin-right: 5%;
-	 			float: left;
 	 
 	 			.vidtitle {
 	 				margin-bottom: 10px;
@@ -415,6 +418,7 @@ div {
 	 			}
 	 
 	 			.videscription {
+	 				text-align: justify;
 					overflow: scroll;
 	 				p {
 	 					padding-bottom: 10px;
@@ -544,24 +548,6 @@ div {
 		top: 120px;
 		.centered(@width);
 		z-index: 200;
-	}
-
-	/* Media */
-
-	.container {
-
-		.leftcol, 
-		.rightcol {
-			width: 90%;
-			margin-left: 5%;
-			margin-right: 5%;
-			float: left;
-		}
-
-	}
-
-	.footer {
-		background: url(../../images/footerbar.png) bottom center fixed no-repeat;
 	}
 
 	/* Values */
@@ -738,14 +724,22 @@ div {
 		width: 75px;
 	}
 
-	#bars {
-		display: none;
-	}
-
 	/* Media */
 
 	.container {
 		width: 70%;
+		height: 100%;
+
+	 	.leftcol {
+			width: 55%;
+			margin-left: 5%;
+		}
+
+		.rightcol {
+		 	width: 28%;
+			margin-right: 5%;
+	 	}
+
 	}
 
 }
@@ -789,18 +783,28 @@ div {
 		width: 40px;
 	}
 
-	#bars {
-		top: 0;
-		position: fixed;
-		background: url(../../images/bars.png) bottom center no-repeat;
-		height:100%; 
-		width:100%; 
-	}
-
 	/* Media */
 
 	.container {
 		width: 100%;
+		height: 100%;
+
+		.leftcol,
+		.rightcol,
+		.social {
+			float: left;
+		}
+
+		.leftcol {
+			width: 83%;
+			margin: 0 0 20px 5%;
+		}
+
+		.rightcol {
+			width: 83%;
+			margin: 0 12% 0 5%;
+		}
+
 	}
 
 }

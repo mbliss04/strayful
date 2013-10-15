@@ -303,8 +303,11 @@ div {
 .product-wrapper #entireproduct .product-descrip #descrip #social {
   margin-top: 30px;
   display: inline-block;
+  line-height: 20px;
+  background-color: red;
 }
 .product-wrapper #entireproduct .product-descrip #descrip #social li {
+  margin-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.7);
   list-style-type: none;
   display: inline;
@@ -364,45 +367,38 @@ div {
 }
 /* Media */
 .container {
+  display: block;
   width: 70%;
   height: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.5);
   padding-top: 120px;
 }
-.container .videos {
-  width: 100%;
-  float: left;
-}
 .container .videos li {
   width: 100%;
   float: left;
   margin-bottom: 50px;
 }
-.container .videos li .leftcol {
-  width: 55%;
-  margin-left: 5%;
+.container .videos li .leftcol,
+.container .videos li .social,
+.container .videos li .rightcol {
   float: left;
 }
 .container .videos li .leftcol iframe {
   display: block;
+  width: 512px;
+  height: 288px;
 }
 .container .videos li .social {
   background: url(../../images/social.png) top left no-repeat;
-  width: 7%;
   height: 150px;
-  float: left;
+  width: 7%;
   -moz-opacity: 0.8;
   -khtml-opacity: 0.8;
   -webkit-opacity: 0.8;
   opacity: 0.8;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
   filter: alpha(opacity=80);
-}
-.container .videos li .rightcol {
-  width: 28%;
-  margin-right: 5%;
-  float: left;
 }
 .container .videos li .rightcol .vidtitle {
   margin-bottom: 10px;
@@ -415,6 +411,7 @@ div {
   color: black;
 }
 .container .videos li .rightcol .videscription {
+  text-align: justify;
   overflow: scroll;
 }
 .container .videos li .rightcol .videscription p {
@@ -566,17 +563,6 @@ div {
     margin-left: -200px;
     z-index: 200;
   }
-  /* Media */
-  .container .leftcol,
-  .container .rightcol {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    float: left;
-  }
-  .footer {
-    background: url(../../images/footerbar.png) bottom center fixed no-repeat;
-  }
   /* Values */
   .elements {
     width: 320px;
@@ -703,7 +689,7 @@ div {
     top: 485px;
   }
 }
-@media all and (min-width: 760px) {
+@media all and (min-width: 780px) {
   /* Gallery */
   .gallery-options {
     background: url(../../images/gallery-options.png) top center no-repeat;
@@ -730,16 +716,22 @@ div {
   .rightbtn {
     width: 75px;
   }
-  #bars {
-    display: none;
-  }
   /* Media */
   .container {
     width: 70%;
+    height: 100%;
+  }
+  .container .leftcol {
+    width: 55%;
+    margin-left: 5%;
+  }
+  .container .rightcol {
+    width: 28%;
+    margin-right: 5%;
   }
 }
 /* Media query for gallery bar */
-@media all and (max-width: 760px) {
+@media all and (max-width: 780px) {
   /* Gallery */
   .gallery-options {
     background: url(../../images/footerbar.png) center bottom no-repeat;
@@ -767,16 +759,23 @@ div {
   .rightbtn {
     width: 40px;
   }
-  #bars {
-    top: 0;
-    position: fixed;
-    background: url(../../images/bars.png) bottom center no-repeat;
-    height: 100%;
-    width: 100%;
-  }
   /* Media */
   .container {
     width: 100%;
+    height: 100%;
+  }
+  .container .leftcol,
+  .container .rightcol,
+  .container .social {
+    float: left;
+  }
+  .container .leftcol {
+    width: 83%;
+    margin: 0 0 20px 5%;
+  }
+  .container .rightcol {
+    width: 83%;
+    margin: 0 12% 0 5%;
   }
 }
 /* Massive CSS */
