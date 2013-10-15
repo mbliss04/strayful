@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var page_title = $(document).find("title").text();
 	var content = page_title.split(" ");
 	var change_top = 90;
+	var gallery_cut_off = 780;
 
 	/* -------------------------------------------------
 
@@ -127,7 +128,7 @@ $(document).ready(function(){
 	});
 
 	function checkIfResize() { 
-		if ($(window).width() > 760) {
+		if ($(window).width() > gallery_cut_off) {
 			getNewGalleryDims();
 		}
 		else {
