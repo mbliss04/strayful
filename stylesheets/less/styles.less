@@ -300,7 +300,6 @@ div {
 					margin-top: 30px;
 					display: inline-block;
 					line-height: 20px;
-					background-color: red;
 					li {
 						margin-bottom: 20px;
 						background-color: rgba(0,0,0,0.7);
@@ -316,6 +315,34 @@ div {
 
 	}
 
+}
+
+#collection {
+	width: 100%;
+	background-color: rgba(0,0,0,0.7);
+	overflow: hidden;
+	display: none;
+	#work {
+		padding-top: 100px;
+		margin: 0 auto;
+		width: 90%;
+		.work-img {
+			float: left;
+			margin: 20px;
+			width: 300px;
+			height: 200px;
+			overflow: hidden;
+			border: 1px white solid;
+			img {
+				max-width: 300px;
+			}
+		}
+	}
+	#returnTop {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
 }
 
 /* Values */
