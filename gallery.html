@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="description" content="Products and media from Stray co.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Stray | Collection</title>
+		<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" src="js/ga.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+		<script type="text/javascript" src="js/slider.js"></script>
+		<script type="text/javascript">
+			// Global variable holding json string for images
+			var parsed;
+			function ajax_json_gallery(folder) {
+				var hr = new XMLHttpRequest();
+				hr.open("POST", "json_gallery.php", true);
+				hr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				hr.onreadystatechange = function() {
+					if (hr.readyState == 4 && hr.status == 200) {
+						parsed = JSON.parse(hr.responseText);
+						// fill the classification section
+						galleryInit(true);
+						for (var o in parsed) {
+							// if image is a classification, add to gallery-ul
+							if (parsed[o].src && parsed[o].category == "class") {
+								$('.gallery-ul').append('<li class="gallery-li '+parsed[o].category+'"><a href="#" onclick="reveal(&#39'+parsed[o].classid+'&#39)"><span class="gallery-cover"><img class="gallery-img" src="'+parsed[o].src+'"/></span></a></li>');
+							}
+						}
+						// reveal the classification section
+						galleryInit(false);
+					}
+				}
+				hr.send("folder="+folder);
+			};
+
+			function galleryInit(start) {
+				if (start) {
+					$('.gallery-ul').css({'opacity':'0'});
+					$('.gallery-ul').innerHTML = "";
+					$('.gallery-li').css({'height':$(window).height()});
+				}
+				else {
+					$('.gallery-ul').animate ({
+							opacity: 1
+					}, 1000);
+				}
+			};
+
+			function reveal(category) {
+				// clear old content
+				$('#work').empty();
+				// loop through json string and add content based on category
+				for (var o in parsed) {
+					if (parsed[o].src) {
+						if (parsed[o].category == category) {
+							$('#work').append('<li class="'+parsed[o].category+
+							'"><a href="#"><div class="work-img"><img src="'+
+							parsed[o].src+'"/></div></a></li>');
+						}
+					}
+				}
+				showContent();
+				$("html, body").animate({ scrollTop: $('#collection').offset().top }, "slow");
+				// lock scroll
+				$("body").css("overflow", "hidden");
+			};
+
+			function showContent() {
+				$('#collection').css('display','block');
+				$('#collection').css({'height':$(window).height()});
+				$('#returnTop').animate({
+					opacity: 1
+				}, 1000);
+			}
+		</script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<link rel="shortcut icon" href="images/favicon.ico"> 
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="stylesheets/css/reset.css">
+		<link rel="stylesheet" href="amaticfont/stylesheet.css">
+		<link rel="stylesheet" href="stylesheets/css/styles.css">
+	</head>
+	<body>
+		<script type="text/javascript">
+			<!--//--><![CDATA[//><!--
+			document.write( '<div id="content-wrapper">' );
+			ajax_json_gallery("images/gallery/categories");
+			//--><!]]>
+		</script>
+		<div class="menu-bar opened">
+			<div class="menu-nav">
+				<ul>
+					<li><a href="collection.html" class="transition">Gallery</a></li>
+					<li><a href="values.html" class="transition">Values</a></li>
+					<li><a href="media.html" class="transition">#Strayful</a></li>
+					<li><a href="contact.html" class="transition">Contact</a></li>
+				</ul>
+			</div>
+			<div class="logo"></div>
+			<div class="close"></div>
+		</div>
+		<div class="menu-open closed"></div>
+		<section id="classification">
+			<div class="gallery-wrapper">
+				<div class="gallery-mask">
+					<ul class="gallery-ul"></ul>
+				</div>
+				<div class="leftbtn">
+					<div class="leftbtn-inner"></div>
+				</div>
+				<div class="rightbtn">
+					<div class="rightbtn-inner"></div>
+				</div>
+			</div>
+		</section>
+		<section id="collection">
+			<ul id="work"></ul>
+			<a href="#classification">
+				<div id="returnTop">RETURN TOP</div>
+			</a>
+		</section>
+		<script type="text/javascript">
+			<!--//--><![CDATA[//><!--
+			document.write( '</div><!-- content-wrapper -->' );
+			//--><!]]>
+		</script>
+	</body>
+</html>
