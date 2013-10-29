@@ -147,5 +147,19 @@ $(document).ready(function(){
 		$(".gallery-options .left .norm").css({'margin-right':new_margin});
 	}
 
+	/*------------------------------------------------- 
+
+	Scroll to top of collections page and hide other stuff
+
+	-------------------------------------------------*/
+
+	$("a[href='#classification']").click(function() {
+		$('#returnTop').animate({
+			opacity: 0
+		}, 600);
+  		$("html, body").animate({ scrollTop: 0 }, "slow");
+  			return false;
+	});
+
 
 });
