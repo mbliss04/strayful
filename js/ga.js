@@ -112,7 +112,7 @@ $(document).ready(function(){
 	
 	-------------------------------------------------*/
 
-	if (content[2][0] == "M" || content[2][0] == "G" || content[2][0] == "C") {
+	if (content[2][0] == "M" || content[2][0] == "G") {
 		classSwitch(big_menu, small_menu, 'opened', 'closed');
 		galleryMenu('hidden', 'shown', 600);
 	}
