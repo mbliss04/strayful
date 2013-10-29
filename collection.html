@@ -10,30 +10,67 @@
 		<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 		<script type="text/javascript" src="js/slider.js"></script>
 		<script type="text/javascript">
+			// Global variable holding json string for images
+			var parsed;
 			function ajax_json_gallery(folder) {
-				var results = $('.gallery-ul');
 				var hr = new XMLHttpRequest();
 				hr.open("POST", "json_gallery.php", true);
-				hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				hr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				hr.onreadystatechange = function() {
 					if (hr.readyState == 4 && hr.status == 200) {
-						var d = JSON.parse(hr.responseText);
-						$('.gallery-ul').css({'opacity':'0'});
-						$('.gallery-ul').innerHTML = "";
-						for (var o in d) {
-							if (d[o].src) {
-								$('.gallery-ul').append('<li class="gallery-li '+
-									d[o].category+'"><a href="#'+d[o].category+'"><img class="gallery-img" src="'+d[o].src+'"/></a></li>');
+						parsed = JSON.parse(hr.responseText);
+						// fill the classification section
+						galleryInit(true);
+						for (var o in parsed) {
+							// if image is a classification, add to gallery-ul
+							if (parsed[o].src && parsed[o].category == "class") {
+								$('.gallery-ul').append('<li class="gallery-li '+parsed[o].category+'"><a href="#" onclick="reveal(&#39'+parsed[o].classid+'&#39)"><span class="gallery-cover"><img class="gallery-img" src="'+parsed[o].src+'"/></span></a></li>');
 							}
 						}
-						$('.gallery-ul').animate ({
-							opacity: 1
-						}, 1000);
+						// reveal the classification section
+						galleryInit(false);
 					}
 				}
 				hr.send("folder="+folder);
-				$('.gallery-ul').innerHTML = 'Content loading...';
 			};
+
+			function galleryInit(start) {
+				if (start) {
+					$('.gallery-ul').css({'opacity':'0'});
+					$('.gallery-ul').innerHTML = "";
+					$('.gallery-li').css({'height':$(window).height()});
+				}
+				else {
+					$('.gallery-ul').animate ({
+							opacity: 1
+					}, 1000);
+				}
+			};
+
+			function reveal(category) {
+				// clear old content
+				$('#work').empty();
+				// loop through json string and add content based on category
+				for (var o in parsed) {
+					if (parsed[o].src) {
+						if (parsed[o].category == category) {
+							$('#work').append('<li class="'+parsed[o].category+
+							'"><a href="#"><div class="work-img"><img src="'+
+							parsed[o].src+'"/></div></a></li>');
+						}
+					}
+				}
+				$('#collection').css('display','block');
+				$('#collection').css({'height':$(window).height()});
+				$("html, body").animate({ scrollTop: $('#collection').offset().top }, "slow");
+				$("body").css("overflow", "hidden");
+			};
+
+			function returnToTop() {
+				$("body").css("overflow", "scroll");
+				$("html, body").animate({ scrollTop: $('#classification').offset().top }, "slow");
+			}
+
 		</script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<link rel="shortcut icon" href="images/favicon.ico"> 
@@ -46,7 +83,7 @@
 		<script type="text/javascript">
 			<!--//--><![CDATA[//><!--
 			document.write( '<div id="content-wrapper">' );
-			ajax_json_gallery("images/gallery");
+			ajax_json_gallery("images/gallery/categories");
 			//--><!]]>
 		</script>
 		<div class="menu-bar opened">
@@ -62,7 +99,7 @@
 			<div class="close"></div>
 		</div>
 		<div class="menu-open closed"></div>
-		<section class="classification">
+		<section id="classification">
 			<div class="gallery-wrapper">
 				<div class="gallery-mask">
 					<ul class="gallery-ul"></ul>
@@ -75,10 +112,12 @@
 				</div>
 			</div>
 		</section>
-		<section name="ponch"></section>
-		<section name="acc"></section>
-		<section name="bag"></section>
-		<section name="look"></section>
+		<section id="collection">
+			<ul id="work"></ul>
+			<a href="#" onclick="returnToTop">
+				<div id="returnTop">RETURN TOP</div>
+			</a>
+		</section>
 		<script type="text/javascript">
 			<!--//--><![CDATA[//><!--
 			document.write( '</div><!-- content-wrapper -->' );
