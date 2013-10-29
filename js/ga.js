@@ -75,6 +75,7 @@ $(document).ready(function(){
 		gallery_menu.css({'z-index':index});
 	}
 
+	/*
 	// Checks which container needs to be moved based on page
 	var moveContainer = function(direction) {
 		var container;
@@ -102,6 +103,7 @@ $(document).ready(function(){
 			container.css({'padding-top':new_padding});
 		}
 	}
+	*/
 
 	/*-------------------------------------------------
 
@@ -110,7 +112,7 @@ $(document).ready(function(){
 	
 	-------------------------------------------------*/
 
-	if (content[2][0] == "M" || content[2][0] == "G") {
+	if (content[2][0] == "M" || content[2][0] == "G" || content[2][0] == "C") {
 		classSwitch(big_menu, small_menu, 'opened', 'closed');
 		galleryMenu('hidden', 'shown', 600);
 	}
@@ -145,12 +147,5 @@ $(document).ready(function(){
 		$(".gallery-options .left .norm").css({'margin-right':new_margin});
 	}
 
-	/*------------------------------------------------- 
-
-	Animate page scroll for gallery change
-
-	-------------------------------------------------*/
-
-	
 
 });
