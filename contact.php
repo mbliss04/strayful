@@ -8,8 +8,7 @@ if(isset($_POST['email'])) {
      
     function died($error) {
         // your error code can go here
-        echo "Sorry man, but there were a couple boo boos found with the form you submitted. ";
-        echo "These guys:<br /><br />";
+        echo "Sorry man, but there were a couple boo boos found with the form you submitted.<br/></br/>";
         echo $error."<br /><br />";
         echo "Please go back and double check!<br /><br />";
         die();
@@ -19,7 +18,7 @@ if(isset($_POST['email'])) {
     if(!isset($_POST['name']) ||
         !isset($_POST['email']) ||
         !isset($_POST['message'])) {
-        died('We are sorry, but there appears to be a problem with the form you submitted.');       
+        died('Sorry, but there is a problem with the form you submitted.');       
     }
      
     $name = $_POST['name']; // required
@@ -71,7 +70,7 @@ $headers = 'From: '.$email_from."\r\n".
     <link rel="shortcut icon" href="images/favicon.ico"> 
     <link rel="stylesheet" href="stylesheets/css/reset.css">
     <link rel="stylesheet" href="amaticfont/stylesheet.css">
-    <link rel="stylesheet" href="stylesheets/css/style.css">
+    <link rel="stylesheet" href="stylesheets/css/styles.css">
   </head>
   <body>
     <div class="left-line"></div>
