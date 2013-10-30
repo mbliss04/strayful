@@ -186,6 +186,23 @@ div {
   float: left;
   width: 20%;
 }
+.gallery-wrapper .gallery-mask .gallery-ul .gallery-li a span {
+  display: none;
+  font-size: 2.0em;
+  padding-top: 50px;
+  text-align: center;
+  padding-top: 375px;
+  text-decoration: none;
+  z-index: 80;
+  position: absolute;
+  width: 20%;
+  height: 100%;
+}
+.gallery-wrapper .gallery-mask .gallery-ul .gallery-li .gallery-cover {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  float: left;
+}
 .gallery-wrapper .leftbtn {
   height: 100%;
   position: absolute;
@@ -245,71 +262,6 @@ div {
   -o-transition: all 0.5 ease-out;
   transition: all 0.5 ease-out;
 }
-.movedown {
-  position: fixed;
-  margin-top: 1000px;
-}
-.moveup {
-  margin-top: 0;
-}
-.product-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-.product-wrapper #entireproduct {
-  width: 70%;
-  height: 100%;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-.product-wrapper #entireproduct .product-frame {
-  float: left;
-  width: 65%;
-  height: 100%;
-}
-.product-wrapper #entireproduct .product-frame .product {
-  margin: 100px 5% 0 5%;
-  width: 90%;
-  height: 500px;
-  overflow: hidden;
-}
-.product-wrapper #entireproduct .product-frame .product img {
-  max-width: 100%;
-}
-.product-wrapper #entireproduct .product-descrip {
-  float: left;
-  width: 35%;
-  height: 100%;
-}
-.product-wrapper #entireproduct .product-descrip #descrip {
-  width: 90%;
-  margin-right: 10%;
-  margin-top: 100px;
-  text-align: center;
-  float: left;
-}
-.product-wrapper #entireproduct .product-descrip #descrip #content #title {
-  margin-bottom: 20px;
-  font-size: 150%;
-}
-.product-wrapper #entireproduct .product-descrip #descrip #social {
-  margin-top: 30px;
-  display: inline-block;
-  line-height: 20px;
-}
-.product-wrapper #entireproduct .product-descrip #descrip #social li {
-  margin-bottom: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  list-style-type: none;
-  display: inline;
-  padding: 5px;
-  margin: 10px;
-}
 #collection {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
@@ -328,10 +280,18 @@ div {
   width: 300px;
   height: 200px;
   overflow: hidden;
-  border: 1px white solid;
+  border: 1px black solid;
 }
 #collection #work .work-img img {
   max-width: 300px;
+}
+#collection #work .work-img:hover {
+  -moz-opacity: 0.6;
+  -khtml-opacity: 0.6;
+  -webkit-opacity: 0.6;
+  opacity: 0.6;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+  filter: alpha(opacity=60);
 }
 #collection #returnTop {
   width: 100%;
@@ -563,7 +523,6 @@ div {
 .thanks h2 {
   color: #d9d9d9;
 }
-/* Collection */
 /* Media Queries */
 /* < --- Mobile CSS --- > */
 @media all and (max-width: 480px) {
