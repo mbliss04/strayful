@@ -161,5 +161,36 @@ $(document).ready(function(){
   			return false;
 	});
 
+	/*------------------------------------------------- 
+
+	On hover of gallery items, show information
+
+	-------------------------------------------------*/
+
+	// hover over gallery classifications
+	$(document).delegate(".gallery-li", "mouseenter", function() {
+		curID = $(this)[0].id;
+		$("#" + curID).children('a').children('span').fadeIn(200);
+	});
+
+	// leave hover of classification section
+	$(document).delegate(".gallery-li", "mouseleave", function() {
+		curID = $(this)[0].id;
+		$("#" + curID).children('a').children('span').fadeOut(200);
+	});
+
+	// IF WANT TO ADD HOVER OVER WORK IMAGES
+
+	// hover over work images
+	$(document).delegate(".work-img", "mouseenter", function() {
+		curID = $(this)[0].id;
+		$("#" + curID).children('span').fadeIn(200);
+	});
+
+	// hover leave work images
+	$(document).delegate(".work-img", "mouseleave", function() {
+		curID = $(this)[0].id;
+		$("#" + curID).children('span').fadeOut(200);
+	});
 
 });
