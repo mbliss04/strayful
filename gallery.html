@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="description" content="Products and media from Stray co.">
+		<meta name="description" content="Products and media from Stray co. Stay curious, be strayful.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>Stray | Gallery</title>
-		<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/lightbox-2.6.min.js"></script>
 		<script type="text/javascript" src="js/ga.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
@@ -24,7 +25,7 @@
 						for (var o in parsed) {
 							// if image is a classification, add to gallery-ul
 							if (parsed[o].src && parsed[o].category == "class") {
-								$('.gallery-ul').append('<li class="gallery-li '+parsed[o].category+'"><a href="#" onclick="reveal(&#39'+parsed[o].classid+'&#39)"><span class="gallery-cover"><img class="gallery-img" src="'+parsed[o].src+'"/></span></a></li>');
+								$('.gallery-ul').append('<li id="'+parsed[o].classid+'" class="gallery-li '+parsed[o].category+'"><a href="#" onclick="reveal(&#39'+parsed[o].classid+'&#39)"><span class="gallery-cover"><em>'+parsed[o].title+'</em></span><img class="gallery-img" src="'+parsed[o].src+'"/></a></li>');
 							}
 						}
 						// reveal the classification section
@@ -55,8 +56,7 @@
 					if (parsed[o].src) {
 						if (parsed[o].category == category) {
 							$('#work').append('<li class="'+parsed[o].category+
-							'"><a href="#"><div class="work-img"><img src="'+
-							parsed[o].src+'"/></div></a></li>');
+							'"><a href="'+parsed[o].src+'" data-lightbox="'+parsed[o].name+'" title="'+parsed[o].title+'"><div id="'+parsed[o].classid+'"class="work-img"><img src="'+parsed[o].src+'"/></div></a></li>');
 						}
 					}
 				}
@@ -77,9 +77,10 @@
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<link rel="shortcut icon" href="images/favicon.ico"> 
 		<!--Stylesheets-->
-		<link rel="stylesheet" href="stylesheets/css/reset.css">
-		<link rel="stylesheet" href="amaticfont/stylesheet.css">
-		<link rel="stylesheet" href="stylesheets/css/styles.css">
+		<link rel="stylesheet" href="stylesheets/css/reset.css"/>
+		<link rel="stylesheet" href="amaticfont/stylesheet.css"/>
+		<link rel="stylesheet" href="stylesheets/css/styles.css"/>
+		<link rel="stylesheet" href="stylesheets/css/lightbox.css"/>
 	</head>
 	<body>
 		<script type="text/javascript">
@@ -91,7 +92,7 @@
 		<div class="menu-bar opened">
 			<div class="menu-nav">
 				<ul>
-					<li><a href="collection.html" class="transition">Gallery</a></li>
+					<li><a href="gallery.html" class="transition">Gallery</a></li>
 					<li><a href="values.html" class="transition">Values</a></li>
 					<li><a href="media.html" class="transition">#Strayful</a></li>
 					<li><a href="contact.html" class="transition">Contact</a></li>
