@@ -5,11 +5,11 @@ $(document).ready(function(){
 	var leftbtn = $('.leftbtn');
 	var gallery = $('.gallery-wrapper');
 	var numSlides = 5;
-  	var slides = new Array();
-  	var toSwitch = new Array();
+  var slides = new Array();
+  var toSwitch = new Array();
 
-    //when user clicks the image for sliding right  
-    rightbtn.click(function(){
+  //when user clicks the image for sliding right  
+  rightbtn.click(function(){
     	// get and remove first five li
   		for(var i = 0; i < numSlides; i++) {
   			toSwitch[i] = $('.gallery-li').get(0);

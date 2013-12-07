@@ -75,36 +75,6 @@ $(document).ready(function(){
 		gallery_menu.css({'z-index':index});
 	}
 
-	/*
-	// Checks which container needs to be moved based on page
-	var moveContainer = function(direction) {
-		var container;
-		if (content[2][0] == "M") {
-			container = $('#page-wrapper');
-			shiftContainer(container, direction);
-		}
-		if (content[2][0] == "G") {
-			container = $('#entireproduct');
-			shiftContainer(container, direction);
-		}
-	}
-
-	// Moves the container in the direction specified
-	function shiftContainer(container, direction) {
-		var cur_padding = parseInt(container.css('padding-top'));
-		if (direction == "up") {
-			cur_padding += -change_top;
-			new_padding = cur_padding + "px";
-			container.css({'padding-top':new_padding});
-		}
-		else {
-			cur_padding += change_top;
-			new_padding = cur_padding + "px";				
-			container.css({'padding-top':new_padding});
-		}
-	}
-	*/
-
 	/*-------------------------------------------------
 
 	If it is either the media or gallery page, 
@@ -127,7 +97,26 @@ $(document).ready(function(){
 
 	$(window).resize(function(){ // Run on page resize
 		checkIfResize();
+		adjustGallery();
 	});
+
+	function adjustGallery() {
+		if ($('#collection').css('display') == 'block') {
+			console.log();
+			// hide the original gallery
+			$('.gallery-wrapper').css({'display':'none'});
+			// resize the width of the work container
+			$('#collection').css({'height':$(window).height});
+			$('#work').css({'height':$(window).height});
+		}
+		else {
+			// hide the work gallery
+			$('#collection').css({'display':'none'});
+			//change the gallery classification size on resize
+			$('.gallery-wrapper').css({'height':$(window).height()});
+			$('.gallery-li img').css({'max-height':$(window).height()});
+		}
+	}
 
 	function checkIfResize() { 
 		if ($(window).width() > gallery_cut_off) {
@@ -154,6 +143,7 @@ $(document).ready(function(){
 	-------------------------------------------------*/
 
 	$("a[href='#classification']").click(function() {
+		$('#classification').css({'display':'block'});
 		$('#returnTop').animate({
 			opacity: 0
 		}, 600);
