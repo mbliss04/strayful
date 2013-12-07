@@ -25,7 +25,8 @@
 						for (var o in parsed) {
 							// if image is a classification, add to gallery-ul
 							if (parsed[o].src && parsed[o].category == "class") {
-								$('.gallery-ul').append('<li id="'+parsed[o].classid+'" class="gallery-li '+parsed[o].category+'"><a href="#" onclick="reveal(&#39'+parsed[o].classid+'&#39)"><span class="gallery-cover"><em>'+parsed[o].title+'</em></span><img class="gallery-img" src="'+parsed[o].src+'"/></a></li>');
+								galleryImg = '<li id="'+parsed[o].classid+'" class="gallery-li '+parsed[o].category+'"><a href="#" onclick="reveal(&#39'+parsed[o].classid+'&#39)"><span class="gallery-cover"><em>'+parsed[o].title+'</em></span><img class="gallery-img" src="'+parsed[o].src+'"/></a></li>';
+								$('.gallery-ul').append(galleryImg);
 							}
 						}
 						// reveal the classification section
@@ -38,10 +39,12 @@
 			function galleryInit(start) {
 				if (start) {
 					$('.gallery-ul').css({'opacity':'0'});
-					$('.gallery-ul').innerHTML = "";
-					$('.gallery-li').css({'height':$(window).height()});
+					$('.gallery-ul').empty();
 				}
 				else {
+					$('.gallery-wrapper').css({'height':$(window).height()});
+					$('.gallery-li img').css({'max-height':$(window).height()});
+					positionLock(true);
 					$('.gallery-ul').animate ({
 							opacity: 1
 					}, 1000);
@@ -50,6 +53,7 @@
 
 			function reveal(category) {
 				// clear old content
+				$('#collection').css({'display':'none'});
 				$('#work').empty();
 				// loop through json string and add content based on category
 				for (var o in parsed) {
@@ -61,9 +65,10 @@
 					}
 				}
 				showContent();
+				// scroll to content
 				$("html, body").animate({ scrollTop: $('#collection').offset().top }, "slow");
 				// lock scroll
-				$("body").css("overflow", "hidden");
+				positionLock(true);
 			};
 
 			function showContent() {
@@ -72,7 +77,16 @@
 				$('#returnTop').animate({
 					opacity: 1
 				}, 1000);
-			}
+			};
+
+			function positionLock(lock) {
+				if (lock) {
+					$("body").css("overflow", "hidden");
+				}
+				else {
+					$("body").css("overflow", "scroll");
+				}
+			};
 		</script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<link rel="shortcut icon" href="images/favicon.ico"> 
