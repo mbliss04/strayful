@@ -177,21 +177,20 @@ div {
   height: 800px;
   position: relative;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .gallery-wrapper .gallery-mask .gallery-ul {
   list-style-type: none;
 }
 .gallery-wrapper .gallery-mask .gallery-ul .gallery-li {
-  height: 800px;
   float: left;
   width: 20%;
 }
 .gallery-wrapper .gallery-mask .gallery-ul .gallery-li a span {
   display: none;
   font-size: 2.0em;
-  padding-top: 50px;
   text-align: center;
-  padding-top: 375px;
+  padding-top: 30%;
   text-decoration: none;
   z-index: 80;
   position: absolute;
@@ -202,6 +201,14 @@ div {
   display: none;
   background-color: rgba(0, 0, 0, 0.5);
   float: left;
+}
+.gallery-wrapper .hideDisplay {
+  display: none;
+  height: 0;
+}
+.gallery-wrapper .showDisplay {
+  display: block;
+  height: auto;
 }
 .gallery-wrapper .leftbtn {
   height: 100%;
@@ -216,6 +223,7 @@ div {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
   filter: alpha(opacity=30);
   display: none;
+  z-index: 100;
 }
 .gallery-wrapper .rightbtn {
   height: 100%;
@@ -230,6 +238,7 @@ div {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
   filter: alpha(opacity=30);
   display: none;
+  z-index: 100;
 }
 .gallery-wrapper .leftbtn:hover,
 .gallery-wrapper .rightbtn:hover {
@@ -276,8 +285,8 @@ div {
 }
 #collection #work .work-img {
   float: left;
-  margin: 20px;
-  width: 300px;
+  margin: 2%;
+  width: 20%;
   height: 200px;
   overflow: hidden;
   border: 1px black solid;

@@ -176,6 +176,7 @@ div {
 	height: 800px;
 	position: relative;
 	overflow: hidden;
+	background-color: rgba(0,0,0,0.7);
 
 	.gallery-mask {
 
@@ -183,15 +184,13 @@ div {
 			list-style-type: none;
 
 			.gallery-li {
-				height: 800px;
 				float: left;
 				width: 20%;
 				a span {
 				    display: none;
 				    font-size: 2.0em;
-				    padding-top: 50px;
 				    text-align: center;
-				    padding-top: 375px;
+				    padding-top: 30%;
 				    text-decoration: none;
 				    z-index: 80;
 				    position: absolute;
@@ -204,12 +203,18 @@ div {
 					float: left;
 				}
 			}
-
-			.gallery-li:hover {
-
-			}
 		}
 	}
+
+.hideDisplay {
+	display: none;
+	height: 0;
+}
+
+.showDisplay {
+	display: block;
+	height: auto;
+}
 
 	.leftbtn {
 		height: 100%;
@@ -219,6 +224,7 @@ div {
 		background: #000;
 		.opacity(.3);
 		display: none;
+		z-index: 100;
 	}
 
 	.rightbtn {
@@ -229,6 +235,7 @@ div {
 		background: #000;
 		.opacity(.3);
 		display: none;
+		z-index: 100;
 	}
 
 	.leftbtn:hover,
@@ -273,8 +280,8 @@ div {
 		height: auto;
 		.work-img {
 			float: left;
-			margin: 20px;
-			width: 300px;
+			margin: 2%;
+			width: 20%;
 			height: 200px;
 			overflow: hidden;
 			border: 1px black solid;
